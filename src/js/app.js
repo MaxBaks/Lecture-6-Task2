@@ -1,10 +1,13 @@
 const GetSpecialAttacks = ({ special }) => {
-  const spec = special;
+  const spec = [];
 
-  for (const i in spec) {
-    if (spec[i].description === undefined) {
-      spec[i].description = 'Описание недоступно';
-    }
+  for (let i = 0; i < special.length; i + 1) {
+    const {
+      id, name, icon, description = 'Описание недоступно',
+    } = special[i];
+    spec.push({
+      id, name, icon, description,
+    });
   }
 
   return spec;
